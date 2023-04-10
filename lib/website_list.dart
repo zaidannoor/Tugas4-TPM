@@ -42,7 +42,7 @@ class WebsiteList extends StatelessWidget {
             subtitle: Text(web.link),
             trailing: IconButton(
                 onPressed: () {
-                  provider.toggleFavorite(web.name, web.link);
+                  provider.toggleFavorite(web.name, web.link, web.image);
                 },
                 icon: provider.isExist(web.name)
                     ? Icon(

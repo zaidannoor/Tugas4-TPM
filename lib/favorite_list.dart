@@ -11,11 +11,14 @@ class FavoriteList extends StatelessWidget {
     final provider = Provider.of<FavoriteProvider>(context);
     final names = provider.names;
     final links = provider.links;
+    final images = provider.images;
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text('Favorite',
-          textAlign: TextAlign.left,),
+          child: Text(
+            'Favorite',
+            textAlign: TextAlign.left,
+          ),
         ),
       ),
       body: ListView.builder(
@@ -23,14 +26,22 @@ class FavoriteList extends StatelessWidget {
         itemBuilder: (context, index) {
           final name = names[index];
           final link = links[index];
+          final imagee = images[index];
           return ListTile(
+            minVerticalPadding: 20,
             onTap: () {
               openUrl(link);
             },
-            title: Text(name),
+            leading: Image.asset(imagee,
+              height: 100,
+              width: 100,
+              fit: BoxFit.cover,),
+            title: Text(name,
+            style: TextStyle(fontSize: 40),),
+            subtitle: Text(link),
             trailing: IconButton(
                 onPressed: () {
-                  provider.toggleFavorite(name, link);
+                  provider.toggleFavorite(name, link, imagee);
                 },
                 icon: provider.isExist(name)
                     ? Icon(

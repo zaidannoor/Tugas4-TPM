@@ -29,17 +29,5 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
-    // return MaterialApp(
-    //   title: 'Tugas 4 TPM',
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.blue,
-    //   ),
-    //   home: const HomePage(),
-    //   routes: {
-    //     '/login': (context) => LoginPage(),
-    //     '/bantuan': (context) => BantuanPage(),
-    //     '/home': (context) => HomePage(),
-    //   },
-    // );
   }
 }
